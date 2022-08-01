@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1 Robota Pro", "F1 Robota Pro\F1 Robota Pro.csproj", "{83E7F49D-BF65-4F88-8B46-BAA1D6F36F73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83E7F49D-BF65-4F88-8B46-BAA1D6F36F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E7F49D-BF65-4F88-8B46-BAA1D6F36F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E7F49D-BF65-4F88-8B46-BAA1D6F36F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E7F49D-BF65-4F88-8B46-BAA1D6F36F73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98EFFC59-1974-4805-AE69-92F5DB7CBA99}
+	EndGlobalSection
+EndGlobal
