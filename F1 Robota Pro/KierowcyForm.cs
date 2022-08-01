@@ -184,5 +184,36 @@ namespace F1_Robota_Pro
         {
             SaveMan.Zapisz(plik, JsonConvert.SerializeObject(Kierowcy));
         }
+
+        private void importujZMetaDatatxtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"Czy chcesz zaimportować dane z pliku MetaData.txt? Spowoduje to usunięcie wszystkich obecnych kierowców.", "Importowanie z MetaData.txt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                MessageBox.Show("Operacja Anulowana.", "Importowanie z MetaData.txt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (MessageBox.Show($"Napewno?", "Importowanie z MetaData.txt", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
+            {
+                MessageBox.Show("Operacja Anulowana.", "Importowanie z MetaData.txt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string nj = SaveMan.WczytajPlik(".\\MetaData.txt");
+            if (nj == null)
+            {
+                MessageBox.Show("Umieść plik MetaData.txt w tym samym folderze, co Program.", "Importowanie z MetaData.txt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+            }
+
+            Kierowcy = new Dictionary<string, Kierowca>();
+
+            foreach (string line in nj.Split('\n'))
+            {
+                string[]hyd=line.Split('|');
+                Kierowcy.Add(hyd[1], new Kierowca(hyd[0], int.Parse(hyd[2]), int.Parse(hyd[3])));
+            }
+            cmbKierowcy.DataSource = Kierowcy.Keys.ToList();
+            MessageBox.Show("Pomyślnie zaimportowano wszystkich Kierowców z MetaData.txt.", "Importowanie z MetaData.txt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

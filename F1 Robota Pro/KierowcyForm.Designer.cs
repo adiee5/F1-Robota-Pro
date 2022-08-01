@@ -329,6 +329,7 @@ namespace F1_Robota_Pro
             this.importujZMetaDatatxtToolStripMenuItem.Name = "importujZMetaDatatxtToolStripMenuItem";
             this.importujZMetaDatatxtToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.importujZMetaDatatxtToolStripMenuItem.Text = "Importuj z MetaData.txt";
+            this.importujZMetaDatatxtToolStripMenuItem.Click += new System.EventHandler(this.importujZMetaDatatxtToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
