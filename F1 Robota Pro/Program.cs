@@ -17,7 +17,7 @@ namespace F1_Robota_Pro
         static void Main()
         {
             //JsonTest();
-            Jsoner();
+            //Jsoner();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
