@@ -35,29 +35,36 @@ namespace F1_Robota_Pro
             this.buttonWyścig = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otwórzFolderZUstawieniamiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonKierowca
             // 
+            this.buttonKierowca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(4)))), ((int)(((byte)(20)))));
+            this.buttonKierowca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonKierowca.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonKierowca.ForeColor = System.Drawing.Color.Red;
             this.buttonKierowca.Location = new System.Drawing.Point(12, 53);
             this.buttonKierowca.Name = "buttonKierowca";
             this.buttonKierowca.Size = new System.Drawing.Size(284, 123);
             this.buttonKierowca.TabIndex = 0;
             this.buttonKierowca.Text = "Ustawienia Kierowców";
-            this.buttonKierowca.UseVisualStyleBackColor = true;
+            this.buttonKierowca.UseVisualStyleBackColor = false;
             this.buttonKierowca.Click += new System.EventHandler(this.buttonKierowca_Click);
             // 
             // buttonZespoły
             // 
+            this.buttonZespoły.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(4)))), ((int)(((byte)(20)))));
+            this.buttonZespoły.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZespoły.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonZespoły.ForeColor = System.Drawing.Color.Red;
             this.buttonZespoły.Location = new System.Drawing.Point(12, 182);
             this.buttonZespoły.Name = "buttonZespoły";
             this.buttonZespoły.Size = new System.Drawing.Size(284, 123);
             this.buttonZespoły.TabIndex = 1;
             this.buttonZespoły.Text = "Ustawienia Zespołów";
-            this.buttonZespoły.UseVisualStyleBackColor = true;
+            this.buttonZespoły.UseVisualStyleBackColor = false;
             this.buttonZespoły.Click += new System.EventHandler(this.buttonZespoły_Click);
             // 
             // buttonWyścig
@@ -83,9 +90,18 @@ namespace F1_Robota_Pro
             // 
             // opcjeToolStripMenuItem
             // 
+            this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.otwórzFolderZUstawieniamiToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
+            // 
+            // otwórzFolderZUstawieniamiToolStripMenuItem
+            // 
+            this.otwórzFolderZUstawieniamiToolStripMenuItem.Name = "otwórzFolderZUstawieniamiToolStripMenuItem";
+            this.otwórzFolderZUstawieniamiToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.otwórzFolderZUstawieniamiToolStripMenuItem.Text = "Otwórz Folder z Ustawieniami";
+            this.otwórzFolderZUstawieniamiToolStripMenuItem.Click += new System.EventHandler(this.otwórzFolderZUstawieniamiToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -117,6 +133,7 @@ namespace F1_Robota_Pro
         private System.Windows.Forms.Button buttonWyścig;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otwórzFolderZUstawieniamiToolStripMenuItem;
     }
 }
 

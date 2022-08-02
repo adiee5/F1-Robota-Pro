@@ -24,8 +24,12 @@ namespace F1_Robota_Pro
 
         private void buttonZespoły_Click(object sender, EventArgs e)
         {
-            
+            new ZespołyForm().ShowDialog();
         }
 
+        private void otwórzFolderZUstawieniamiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\F1 Robota Pro\\");
+        }
     }
 }

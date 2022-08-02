@@ -93,6 +93,12 @@
     <Compile Include="SaveMan.cs" />
     <Compile Include="Strukty.cs" />
     <Compile Include="Wyścig.cs" />
+    <Compile Include="ZespołyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZespołyForm.Designer.cs">
+      <DependentUpon>ZespołyForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DodajForm.resx">
       <DependentUpon>DodajForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +118,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ZespołyForm.resx">
+      <DependentUpon>ZespołyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\F1 Robota Pro.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,6 +140,11 @@
     <None Include="Tło.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\F1 Robota Pro.exe" />
+    <Content Include="bin\Debug\F1 Robota Pro.pdb" />
+    <Content Include="bin\Debug\MetaData.txt" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
     <Content Include="eyes.ICO" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +158,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -53,6 +53,9 @@ namespace F1_Robota_Pro
             cmbTeam.Text = Kierowcy[cmbKierowcy.Text].Team;
             numMin.Value = Kierowcy[cmbKierowcy.Text].Min;
             numMax.Value = Kierowcy[cmbKierowcy.Text].Max;
+            numRainMin.Value = Kierowcy[cmbKierowcy.Text].RainMin;
+            numRainMax.Value = Kierowcy[cmbKierowcy.Text].RainMax;
+            numDnf.Value = Kierowcy[cmbKierowcy.Text].Dnf;
         }
 
         private void AddNewButton_Click(object sender, EventArgs e)
@@ -85,7 +88,7 @@ namespace F1_Robota_Pro
                 numMin.Value = numMax.Value;
                 numMax.Value = żyd;
             }
-            Kierowcy[cmbKierowcy.Text] = new Kierowca(cmbTeam.Text, (int)numMin.Value, (int)numMax.Value);
+            Kierowcy[cmbKierowcy.Text] = new Kierowca(cmbTeam.Text, (int)numMin.Value, (int)numMax.Value,(int)numRainMin.Value,(int)numRainMax.Value,(int)numDnf.Value);
             MessageBox.Show("Zmiany zostały zatwierdzone.", "Zatwierdzono", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -158,7 +161,7 @@ namespace F1_Robota_Pro
 
         private void cofnijWszystkieOstatnieZmianyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"Chcez cofnąć wsystkie zmiany, jakie zostały dokonane po otwarciu tego okna? Tej akcji nie da się cofnąć!", "Cofanie Wszystkich Ostatnich Zmian", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show($"Chcesz cofnąć wsystkie zmiany, jakie zostały dokonane po otwarciu tego okna? Tej akcji nie da się cofnąć!", "Cofanie Wszystkich Ostatnich Zmian", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 MessageBox.Show("Operacja Anulowana.", "Cofanie Wszystkich Ostatnich Zmian", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -210,10 +213,12 @@ namespace F1_Robota_Pro
             foreach (string line in nj.Split('\n'))
             {
                 string[]hyd=line.Split('|');
-                Kierowcy.Add(hyd[1], new Kierowca(hyd[0], int.Parse(hyd[2]), int.Parse(hyd[3])));
+                Kierowcy.Add(hyd[1], new Kierowca(hyd[0], int.Parse(hyd[2]), int.Parse(hyd[3]), int.Parse(hyd[2]), int.Parse(hyd[3]),0));
             }
             cmbKierowcy.DataSource = Kierowcy.Keys.ToList();
-            MessageBox.Show("Pomyślnie zaimportowano wszystkich Kierowców z MetaData.txt.", "Importowanie z MetaData.txt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Pomyślnie zaimportowano wszystkich Kierowców z MetaData.txt. " +
+                            "Zalecane Jest sprawdzenie, czy Zespoły z zaimportowanych kierowców istnieją.\n\n" +
+                            "UWAGA - W F1 Robota Pro nazwy zespołów są czułe na Wielkość Liter i Spacje!", "Importowanie z MetaData.txt", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

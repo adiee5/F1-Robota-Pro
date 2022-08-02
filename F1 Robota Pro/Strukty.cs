@@ -8,10 +8,10 @@ namespace F1_Robota_Pro
 {
     struct Kierowca
     {
-        public string Team;public int Min, Max;
-        public Kierowca(string team, int min, int max)
+        public string Team;public int Min, Max,RainMin,RainMax,Dnf;
+        public Kierowca(string team, int min, int max,int rainMin,int rainMax,int dnf)
         {
-            Team = team;Min = min;Max = max;
+            Team = team;Min = min;Max = max;RainMin = rainMin;RainMax = rainMax;Dnf = dnf;
         }
     }
     struct Zespół
