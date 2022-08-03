@@ -108,6 +108,11 @@ namespace F1_Robota_Pro
             // 
             this.numDnf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numDnf.Location = new System.Drawing.Point(377, 23);
+            this.numDnf.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numDnf.Name = "numDnf";
             this.numDnf.Size = new System.Drawing.Size(136, 20);
             this.numDnf.TabIndex = 4;

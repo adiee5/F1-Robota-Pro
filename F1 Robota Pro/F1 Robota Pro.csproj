@@ -93,6 +93,12 @@
     <Compile Include="SaveMan.cs" />
     <Compile Include="Strukty.cs" />
     <Compile Include="Wyścig.cs" />
+    <Compile Include="WyścigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyścigForm.Designer.cs">
+      <DependentUpon>WyścigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ZespołyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WyścigForm.resx">
+      <DependentUpon>WyścigForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ZespołyForm.resx">
       <DependentUpon>ZespołyForm.cs</DependentUpon>
     </EmbeddedResource>

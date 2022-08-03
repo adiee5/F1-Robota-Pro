@@ -49,5 +49,9 @@ namespace F1_Robota_Pro
             return h;
         }
 
+        public static void DopiszDoLogów(string zawartość, string gdzie = ".\\Wyniki.log")
+        {
+            File.AppendAllText(gdzie, zawartość);
+        }
     }
 }

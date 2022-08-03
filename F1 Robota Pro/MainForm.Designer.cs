@@ -36,7 +36,14 @@ namespace F1_Robota_Pro
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzFolderZUstawieniamiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.numLoops = new System.Windows.Forms.NumericUpDown();
+            this.checkDeszcz = new System.Windows.Forms.CheckBox();
+            this.output = new System.Windows.Forms.TextBox();
+            this.btnExportCsv = new System.Windows.Forms.Button();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.csvExportWindow = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numLoops)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonKierowca
@@ -45,7 +52,7 @@ namespace F1_Robota_Pro
             this.buttonKierowca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonKierowca.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonKierowca.ForeColor = System.Drawing.Color.Red;
-            this.buttonKierowca.Location = new System.Drawing.Point(12, 53);
+            this.buttonKierowca.Location = new System.Drawing.Point(12, 35);
             this.buttonKierowca.Name = "buttonKierowca";
             this.buttonKierowca.Size = new System.Drawing.Size(284, 123);
             this.buttonKierowca.TabIndex = 0;
@@ -59,7 +66,7 @@ namespace F1_Robota_Pro
             this.buttonZespoły.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZespoły.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonZespoły.ForeColor = System.Drawing.Color.Red;
-            this.buttonZespoły.Location = new System.Drawing.Point(12, 182);
+            this.buttonZespoły.Location = new System.Drawing.Point(12, 164);
             this.buttonZespoły.Name = "buttonZespoły";
             this.buttonZespoły.Size = new System.Drawing.Size(284, 123);
             this.buttonZespoły.TabIndex = 1;
@@ -69,13 +76,16 @@ namespace F1_Robota_Pro
             // 
             // buttonWyścig
             // 
+            this.buttonWyścig.BackColor = System.Drawing.Color.Red;
+            this.buttonWyścig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWyścig.Font = new System.Drawing.Font("Bahnschrift", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonWyścig.Location = new System.Drawing.Point(12, 373);
             this.buttonWyścig.Name = "buttonWyścig";
             this.buttonWyścig.Size = new System.Drawing.Size(776, 65);
             this.buttonWyścig.TabIndex = 2;
             this.buttonWyścig.Text = "WYŚCIG!!!";
-            this.buttonWyścig.UseVisualStyleBackColor = true;
+            this.buttonWyścig.UseVisualStyleBackColor = false;
+            this.buttonWyścig.Click += new System.EventHandler(this.buttonWyścig_Click);
             // 
             // menuStrip1
             // 
@@ -91,7 +101,8 @@ namespace F1_Robota_Pro
             // opcjeToolStripMenuItem
             // 
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.otwórzFolderZUstawieniamiToolStripMenuItem});
+            this.otwórzFolderZUstawieniamiToolStripMenuItem,
+            this.toolStripSeparator1});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
@@ -103,6 +114,79 @@ namespace F1_Robota_Pro
             this.otwórzFolderZUstawieniamiToolStripMenuItem.Text = "Otwórz Folder z Ustawieniami";
             this.otwórzFolderZUstawieniamiToolStripMenuItem.Click += new System.EventHandler(this.otwórzFolderZUstawieniamiToolStripMenuItem_Click);
             // 
+            // numLoops
+            // 
+            this.numLoops.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(4)))), ((int)(((byte)(20)))));
+            this.numLoops.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numLoops.ForeColor = System.Drawing.Color.Red;
+            this.numLoops.Location = new System.Drawing.Point(166, 347);
+            this.numLoops.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numLoops.Name = "numLoops";
+            this.numLoops.Size = new System.Drawing.Size(130, 20);
+            this.numLoops.TabIndex = 4;
+            this.numLoops.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // checkDeszcz
+            // 
+            this.checkDeszcz.AutoSize = true;
+            this.checkDeszcz.BackColor = System.Drawing.Color.Transparent;
+            this.checkDeszcz.ForeColor = System.Drawing.Color.Red;
+            this.checkDeszcz.Location = new System.Drawing.Point(195, 308);
+            this.checkDeszcz.Name = "checkDeszcz";
+            this.checkDeszcz.Size = new System.Drawing.Size(61, 17);
+            this.checkDeszcz.TabIndex = 5;
+            this.checkDeszcz.Text = "Deszcz";
+            this.checkDeszcz.UseVisualStyleBackColor = false;
+            // 
+            // output
+            // 
+            this.output.AcceptsReturn = true;
+            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(4)))), ((int)(((byte)(20)))));
+            this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.output.ForeColor = System.Drawing.Color.Red;
+            this.output.Location = new System.Drawing.Point(515, 35);
+            this.output.Multiline = true;
+            this.output.Name = "output";
+            this.output.ReadOnly = true;
+            this.output.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.output.Size = new System.Drawing.Size(273, 332);
+            this.output.TabIndex = 37;
+            // 
+            // btnExportCsv
+            // 
+            this.btnExportCsv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(4)))), ((int)(((byte)(20)))));
+            this.btnExportCsv.Enabled = false;
+            this.btnExportCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportCsv.ForeColor = System.Drawing.Color.Red;
+            this.btnExportCsv.Location = new System.Drawing.Point(12, 293);
+            this.btnExportCsv.Name = "btnExportCsv";
+            this.btnExportCsv.Size = new System.Drawing.Size(148, 74);
+            this.btnExportCsv.TabIndex = 38;
+            this.btnExportCsv.Text = "Wyeksportuj do Tabelki";
+            this.btnExportCsv.UseVisualStyleBackColor = false;
+            this.btnExportCsv.Click += new System.EventHandler(this.btnExportCsv_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(227, 6);
+            // 
+            // csvExportWindow
+            // 
+            this.csvExportWindow.DefaultExt = "csv";
+            this.csvExportWindow.Filter = "Tabela CSV|*.csv";
+            this.csvExportWindow.Title = "Zapisz Tabelkę Jako";
+            this.csvExportWindow.FileOk += new System.ComponentModel.CancelEventHandler(this.csvExportWindow_FileOk);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +194,10 @@ namespace F1_Robota_Pro
             this.BackgroundImage = global::F1_Robota_Pro.Properties.Resources.Tło;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExportCsv);
+            this.Controls.Add(this.output);
+            this.Controls.Add(this.checkDeszcz);
+            this.Controls.Add(this.numLoops);
             this.Controls.Add(this.buttonWyścig);
             this.Controls.Add(this.buttonZespoły);
             this.Controls.Add(this.buttonKierowca);
@@ -121,6 +209,7 @@ namespace F1_Robota_Pro
             this.Text = " F1 Robota Pro";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numLoops)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +223,12 @@ namespace F1_Robota_Pro
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otwórzFolderZUstawieniamiToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown numLoops;
+        private System.Windows.Forms.CheckBox checkDeszcz;
+        private System.Windows.Forms.TextBox output;
+        private System.Windows.Forms.Button btnExportCsv;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.SaveFileDialog csvExportWindow;
     }
 }
 

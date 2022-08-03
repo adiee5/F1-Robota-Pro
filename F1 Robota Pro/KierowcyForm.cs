@@ -88,6 +88,18 @@ namespace F1_Robota_Pro
                 numMin.Value = numMax.Value;
                 numMax.Value = żyd;
             }
+            if (numRainMin.Value == numRainMax.Value)
+            {
+                MessageBox.Show("Liczby zakresu nie mogą być równe.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (numRainMin.Value > numRainMax.Value)
+            {
+                decimal żyd = numRainMin.Value;
+                numRainMin.Value = numRainMax.Value;
+                numRainMax.Value = żyd;
+            }
+
             Kierowcy[cmbKierowcy.Text] = new Kierowca(cmbTeam.Text, (int)numMin.Value, (int)numMax.Value,(int)numRainMin.Value,(int)numRainMax.Value,(int)numDnf.Value);
             MessageBox.Show("Zmiany zostały zatwierdzone.", "Zatwierdzono", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -168,6 +168,5 @@ namespace F1_Robota_Pro
         {
             SaveMan.Zapisz(plik, JsonConvert.SerializeObject(Zespoły));
         }
-
     }
 }
