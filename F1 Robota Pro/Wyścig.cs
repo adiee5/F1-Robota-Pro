@@ -11,7 +11,7 @@ namespace F1_Robota_Pro
     class Wyścig
     {
         const string metaDataJson = "MetaData", teamsJson="Teams";
-        public static string Run(int okrążenia, bool Deszcz)
+        public static string Run(int okrążenia, bool Deszcz, bool NoDnf)
         {
             string output="";
 
@@ -37,11 +37,11 @@ namespace F1_Robota_Pro
 
             Random random = new Random();
 
-            SaveMan.DopiszDoLogów($"\n\n*{DateTime.Now} | F1 Robota Pro Race*:\n\n");
+            SaveMan.DopiszDoLogów($"\n\n*{DateTime.Now} | F1 Robota Pro Race*:\n");
 
             for(int okr=1; okr <= okrążenia; okr++)
             {
-                SaveMan.DopiszDoLogów($"Okrążenie nr {okr}:\n\n");
+                SaveMan.DopiszDoLogów($"\nOkrążenie nr {okr}:\n\n");
 
                 foreach(var kiero in Kierowcy)
                 {
@@ -53,30 +53,34 @@ namespace F1_Robota_Pro
                         doable = false;
                     }
 
-                    if (zespół.DnfChance != 0)
+                    if (!NoDnf)
                     {
-                        dnfZesp = random.Next(Int32.MinValue, Int32.MaxValue) % zespół.DnfChance;
+                        if (zespół.DnfChance != 0)
+                        {
+                            dnfZesp = random.Next(Int32.MinValue, Int32.MaxValue) % zespół.DnfChance;
+                        }
+                        if (kiero.Value.Dnf != 0)
+                        {
+                            dnfKiero = random.Next(Int32.MinValue, Int32.MaxValue) % kiero.Value.Dnf;
+                        }
+                        if (dnfZesp == 0)
+                        {
+                            doable = false;
+                            string i = Fuck.Sake(kiero.Key);
+                            dnfReason = $"\nDnf reason (Zespół): {i}";
+                            MessageBox.Show(i, "DNF (Zespół)", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Wynik = "dnf (Zespół)";
+                        }
+                        if (dnfKiero == 0)
+                        {
+                            doable = false;
+                            string i = Fuck.Sake(kiero.Key, true);
+                            dnfReason = $"\nDnf reason (Kierowca): {i}";
+                            MessageBox.Show(i, "DNF (Kierowca)", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Wynik = "dnf (Kierowca)";
+                        }
                     }
-                    if (kiero.Value.Dnf != 0)
-                    {
-                        dnfKiero = random.Next(Int32.MinValue, Int32.MaxValue) % kiero.Value.Dnf;
-                    }
-                    if (dnfZesp == 0)
-                    {
-                        doable = false;
-                        string i = Fuck.Sake(kiero.Key);
-                        dnfReason = $"\nDnf reason (Zespół): {i}";
-                        MessageBox.Show(i, "DNF (Zespół)", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Wynik = "dnf (Zespół)";
-                    }
-                    if (dnfKiero == 0)
-                    {
-                        doable = false;
-                        string i = Fuck.Sake(kiero.Key,true);
-                        dnfReason = $"\nDnf reason (Kierowca): {i}";
-                        MessageBox.Show(i, "DNF (Kierowca)", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Wynik = "dnf (Kierowca)";
-                    }
+                    
                     if (doable)
                     {
                         wynik = ((double)random.Next(Deszcz?kiero.Value.RainMin:kiero.Value.Min, Deszcz ? kiero.Value.RainMax : kiero.Value.Max)) / 1000 + zespół.LoopTime;
@@ -99,7 +103,7 @@ namespace F1_Robota_Pro
                 else ewron = @"¯\_(ツ)_/¯";
                 output = $"{OutptCache}{Environment.NewLine}{kierowca.Key} = {ewron}";
             }
-            SaveMan.DopiszDoLogów($"final results:\n{output}");
+            SaveMan.DopiszDoLogów($"\nfinal results:\n{output}");
             MessageBox.Show("Symulacja zakończona!", "Hurra!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             return output;

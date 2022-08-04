@@ -211,7 +211,7 @@ namespace F1_Robota_Pro
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.45455F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.54546F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel6.Controls.Add(this.label7, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.numRainMax, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.label8, 0, 0);
@@ -227,7 +227,7 @@ namespace F1_Robota_Pro
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(134, 5);
+            this.label7.Location = new System.Drawing.Point(133, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 13);
             this.label7.TabIndex = 4;
@@ -235,14 +235,14 @@ namespace F1_Robota_Pro
             // 
             // numRainMax
             // 
-            this.numRainMax.Location = new System.Drawing.Point(29, 3);
+            this.numRainMax.Location = new System.Drawing.Point(28, 3);
             this.numRainMax.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
             this.numRainMax.Name = "numRainMax";
-            this.numRainMax.Size = new System.Drawing.Size(96, 20);
+            this.numRainMax.Size = new System.Drawing.Size(95, 20);
             this.numRainMax.TabIndex = 0;
             // 
             // label8
@@ -381,7 +381,7 @@ namespace F1_Robota_Pro
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.45455F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.54546F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel4.Controls.Add(this.label6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.numMax, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
@@ -397,7 +397,7 @@ namespace F1_Robota_Pro
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(133, 5);
+            this.label6.Location = new System.Drawing.Point(132, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(20, 13);
             this.label6.TabIndex = 4;
@@ -405,14 +405,14 @@ namespace F1_Robota_Pro
             // 
             // numMax
             // 
-            this.numMax.Location = new System.Drawing.Point(29, 3);
+            this.numMax.Location = new System.Drawing.Point(28, 3);
             this.numMax.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
             this.numMax.Name = "numMax";
-            this.numMax.Size = new System.Drawing.Size(95, 20);
+            this.numMax.Size = new System.Drawing.Size(94, 20);
             this.numMax.TabIndex = 0;
             // 
             // label5

@@ -36,12 +36,16 @@ namespace F1_Robota_Pro
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzFolderZUstawieniamiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.numLoops = new System.Windows.Forms.NumericUpDown();
             this.checkDeszcz = new System.Windows.Forms.CheckBox();
             this.output = new System.Windows.Forms.TextBox();
             this.btnExportCsv = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.csvExportWindow = new System.Windows.Forms.SaveFileDialog();
+            this.checkNoDnf = new System.Windows.Forms.CheckBox();
+            this.memyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mcLarenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atakujeMnieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLoops)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +106,8 @@ namespace F1_Robota_Pro
             // 
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.otwórzFolderZUstawieniamiToolStripMenuItem,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.memyToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
@@ -113,6 +118,11 @@ namespace F1_Robota_Pro
             this.otwórzFolderZUstawieniamiToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.otwórzFolderZUstawieniamiToolStripMenuItem.Text = "Otwórz Folder z Ustawieniami";
             this.otwórzFolderZUstawieniamiToolStripMenuItem.Click += new System.EventHandler(this.otwórzFolderZUstawieniamiToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(227, 6);
             // 
             // numLoops
             // 
@@ -139,7 +149,7 @@ namespace F1_Robota_Pro
             this.checkDeszcz.AutoSize = true;
             this.checkDeszcz.BackColor = System.Drawing.Color.Transparent;
             this.checkDeszcz.ForeColor = System.Drawing.Color.Red;
-            this.checkDeszcz.Location = new System.Drawing.Point(195, 308);
+            this.checkDeszcz.Location = new System.Drawing.Point(166, 309);
             this.checkDeszcz.Name = "checkDeszcz";
             this.checkDeszcz.Size = new System.Drawing.Size(61, 17);
             this.checkDeszcz.TabIndex = 5;
@@ -175,17 +185,46 @@ namespace F1_Robota_Pro
             this.btnExportCsv.UseVisualStyleBackColor = false;
             this.btnExportCsv.Click += new System.EventHandler(this.btnExportCsv_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(227, 6);
-            // 
             // csvExportWindow
             // 
             this.csvExportWindow.DefaultExt = "csv";
             this.csvExportWindow.Filter = "Tabela CSV|*.csv";
             this.csvExportWindow.Title = "Zapisz Tabelkę Jako";
             this.csvExportWindow.FileOk += new System.ComponentModel.CancelEventHandler(this.csvExportWindow_FileOk);
+            // 
+            // checkNoDnf
+            // 
+            this.checkNoDnf.AutoSize = true;
+            this.checkNoDnf.BackColor = System.Drawing.Color.Transparent;
+            this.checkNoDnf.ForeColor = System.Drawing.Color.Red;
+            this.checkNoDnf.Location = new System.Drawing.Point(166, 293);
+            this.checkNoDnf.Name = "checkNoDnf";
+            this.checkNoDnf.Size = new System.Drawing.Size(88, 17);
+            this.checkNoDnf.TabIndex = 39;
+            this.checkNoDnf.Text = "Wyłącz DNF";
+            this.checkNoDnf.UseVisualStyleBackColor = false;
+            // 
+            // memyToolStripMenuItem
+            // 
+            this.memyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.atakujeMnieToolStripMenuItem,
+            this.mcLarenToolStripMenuItem});
+            this.memyToolStripMenuItem.Name = "memyToolStripMenuItem";
+            this.memyToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.memyToolStripMenuItem.Text = "Memy";
+            // 
+            // mcLarenToolStripMenuItem
+            // 
+            this.mcLarenToolStripMenuItem.Name = "mcLarenToolStripMenuItem";
+            this.mcLarenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mcLarenToolStripMenuItem.Text = "McLaren";
+            // 
+            // atakujeMnieToolStripMenuItem
+            // 
+            this.atakujeMnieToolStripMenuItem.Name = "atakujeMnieToolStripMenuItem";
+            this.atakujeMnieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atakujeMnieToolStripMenuItem.Text = "Atakuje mnie";
+            this.atakujeMnieToolStripMenuItem.Click += new System.EventHandler(this.atakujeMnieToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -194,6 +233,7 @@ namespace F1_Robota_Pro
             this.BackgroundImage = global::F1_Robota_Pro.Properties.Resources.Tło;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkNoDnf);
             this.Controls.Add(this.btnExportCsv);
             this.Controls.Add(this.output);
             this.Controls.Add(this.checkDeszcz);
@@ -229,6 +269,10 @@ namespace F1_Robota_Pro
         private System.Windows.Forms.Button btnExportCsv;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.SaveFileDialog csvExportWindow;
+        private System.Windows.Forms.CheckBox checkNoDnf;
+        private System.Windows.Forms.ToolStripMenuItem memyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mcLarenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atakujeMnieToolStripMenuItem;
     }
 }
 

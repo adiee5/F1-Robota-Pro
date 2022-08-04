@@ -55,6 +55,7 @@ namespace F1_Robota_Pro
             // 
             // DodajForm
             // 
+            this.AcceptButton = this.DoneButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 72);

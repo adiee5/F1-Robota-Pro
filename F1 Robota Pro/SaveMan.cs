@@ -24,11 +24,12 @@ namespace F1_Robota_Pro
         {
             ZapiszPlik(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + $"\\F1 Robota Pro\\{nazwa}.json", zawartość);
         }
-        public static void ZapiszPlik(string ścieżka,string zawartość)
+        public static void ZapiszPlik(string ścieżka,string zawartość,System.Text.Encoding cod=null)
         {
             //var p = Path.GetDirectoryName(ścieżka);
             if (!Directory.Exists(Path.GetDirectoryName(ścieżka))) Directory.CreateDirectory(Path.GetDirectoryName(ścieżka));
-            File.WriteAllText(ścieżka,zawartość);
+            if (cod == null) File.WriteAllText(ścieżka, zawartość);
+            else File.WriteAllText(ścieżka, zawartość, cod);
         }
 
         public static void Usuń(string nazwa, string zawartość)
