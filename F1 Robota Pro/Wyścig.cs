@@ -35,11 +35,22 @@ namespace F1_Robota_Pro
 
             Dictionary<string, WynikiKierowców> wyniki = new Dictionary<string, WynikiKierowców>();
 
+            string jsonP = SaveMan.Wczytaj("PolePos");
+            Dictionary<string, short> PoLePos= (jsonP == null || jsonP == "" || jsonP == "{}" || jsonP == "{{}}")
+                ?new Dictionary<string,short>(): JsonConvert.DeserializeObject<Dictionary<string, short>>(jsonP);
+
             Random random = new Random();
 
             SaveMan.DopiszDoLogów($"\n\n*{DateTime.Now} | F1 Robota Pro Race*:\n");
 
-            for(int okr=1; okr <= okrążenia; okr++)
+            foreach(var kiero in Kierowcy)
+            {
+                short z;
+                PoLePos.TryGetValue(kiero.Key, out z);
+                wyniki.Add(kiero.Key, new WynikiKierowców(z, true));
+            }
+
+            for (int okr=1; okr <= okrążenia; okr++)
             {
                 SaveMan.DopiszDoLogów($"\nOkrążenie nr {okr}:\n\n");
 
