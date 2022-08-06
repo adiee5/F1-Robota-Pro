@@ -22,7 +22,7 @@ namespace F1_Robota_Pro.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace F1_Robota_Pro.Properties {
         /// Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("F1_Robota_Pro.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace F1_Robota_Pro.Properties {
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,16 @@ namespace F1_Robota_Pro.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream McLaren {
+        public static System.IO.UnmanagedMemoryStream Atakuje_mnie {
+            get {
+                return ResourceManager.GetStream("Atakuje_mnie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream McLaren {
             get {
                 return ResourceManager.GetStream("McLaren", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace F1_Robota_Pro.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tło {
+        public static System.Drawing.Bitmap Tło {
             get {
                 object obj = ResourceManager.GetObject("Tło", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

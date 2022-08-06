@@ -37,15 +37,19 @@ namespace F1_Robota_Pro
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzFolderZUstawieniamiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.memyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atakujeMnieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mcLarenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.numLoops = new System.Windows.Forms.NumericUpDown();
             this.checkDeszcz = new System.Windows.Forms.CheckBox();
             this.output = new System.Windows.Forms.TextBox();
             this.btnExportCsv = new System.Windows.Forms.Button();
             this.csvExportWindow = new System.Windows.Forms.SaveFileDialog();
             this.checkNoDnf = new System.Windows.Forms.CheckBox();
-            this.memyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mcLarenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.atakujeMnieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.polaStartoweToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edytujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zczytajZOutputuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLoops)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +111,8 @@ namespace F1_Robota_Pro
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.otwórzFolderZUstawieniamiToolStripMenuItem,
             this.toolStripSeparator1,
-            this.memyToolStripMenuItem});
+            this.memyToolStripMenuItem,
+            this.polaStartoweToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
@@ -123,6 +128,29 @@ namespace F1_Robota_Pro
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(227, 6);
+            // 
+            // memyToolStripMenuItem
+            // 
+            this.memyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.atakujeMnieToolStripMenuItem,
+            this.mcLarenToolStripMenuItem});
+            this.memyToolStripMenuItem.Name = "memyToolStripMenuItem";
+            this.memyToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.memyToolStripMenuItem.Text = "Memy";
+            // 
+            // atakujeMnieToolStripMenuItem
+            // 
+            this.atakujeMnieToolStripMenuItem.Name = "atakujeMnieToolStripMenuItem";
+            this.atakujeMnieToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.atakujeMnieToolStripMenuItem.Text = "Atakuje mnie";
+            this.atakujeMnieToolStripMenuItem.Click += new System.EventHandler(this.atakujeMnieToolStripMenuItem_Click);
+            // 
+            // mcLarenToolStripMenuItem
+            // 
+            this.mcLarenToolStripMenuItem.Name = "mcLarenToolStripMenuItem";
+            this.mcLarenToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.mcLarenToolStripMenuItem.Text = "McLaren";
+            this.mcLarenToolStripMenuItem.Click += new System.EventHandler(this.mcLarenToolStripMenuItem_Click);
             // 
             // numLoops
             // 
@@ -204,27 +232,36 @@ namespace F1_Robota_Pro
             this.checkNoDnf.Text = "Wyłącz DNF";
             this.checkNoDnf.UseVisualStyleBackColor = false;
             // 
-            // memyToolStripMenuItem
+            // polaStartoweToolStripMenuItem
             // 
-            this.memyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.atakujeMnieToolStripMenuItem,
-            this.mcLarenToolStripMenuItem});
-            this.memyToolStripMenuItem.Name = "memyToolStripMenuItem";
-            this.memyToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.memyToolStripMenuItem.Text = "Memy";
+            this.polaStartoweToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.edytujToolStripMenuItem,
+            this.zczytajZOutputuToolStripMenuItem,
+            this.resetujToolStripMenuItem});
+            this.polaStartoweToolStripMenuItem.Name = "polaStartoweToolStripMenuItem";
+            this.polaStartoweToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.polaStartoweToolStripMenuItem.Text = "Pola Startowe";
             // 
-            // mcLarenToolStripMenuItem
+            // edytujToolStripMenuItem
             // 
-            this.mcLarenToolStripMenuItem.Name = "mcLarenToolStripMenuItem";
-            this.mcLarenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mcLarenToolStripMenuItem.Text = "McLaren";
+            this.edytujToolStripMenuItem.Name = "edytujToolStripMenuItem";
+            this.edytujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.edytujToolStripMenuItem.Text = "Edytuj";
+            this.edytujToolStripMenuItem.Click += new System.EventHandler(this.edytujToolStripMenuItem_Click);
             // 
-            // atakujeMnieToolStripMenuItem
+            // zczytajZOutputuToolStripMenuItem
             // 
-            this.atakujeMnieToolStripMenuItem.Name = "atakujeMnieToolStripMenuItem";
-            this.atakujeMnieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.atakujeMnieToolStripMenuItem.Text = "Atakuje mnie";
-            this.atakujeMnieToolStripMenuItem.Click += new System.EventHandler(this.atakujeMnieToolStripMenuItem_Click);
+            this.zczytajZOutputuToolStripMenuItem.Name = "zczytajZOutputuToolStripMenuItem";
+            this.zczytajZOutputuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zczytajZOutputuToolStripMenuItem.Text = "Zczytaj z Outputu";
+            this.zczytajZOutputuToolStripMenuItem.Click += new System.EventHandler(this.zczytajZOutputuToolStripMenuItem_Click);
+            // 
+            // resetujToolStripMenuItem
+            // 
+            this.resetujToolStripMenuItem.Name = "resetujToolStripMenuItem";
+            this.resetujToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetujToolStripMenuItem.Text = "Resetuj";
+            this.resetujToolStripMenuItem.Click += new System.EventHandler(this.resetujToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -273,6 +310,10 @@ namespace F1_Robota_Pro
         private System.Windows.Forms.ToolStripMenuItem memyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mcLarenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atakujeMnieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem polaStartoweToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edytujToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zczytajZOutputuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetujToolStripMenuItem;
     }
 }
 

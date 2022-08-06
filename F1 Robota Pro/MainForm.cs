@@ -20,7 +20,7 @@ namespace F1_Robota_Pro
 
         private void buttonKierowca_Click(object sender, EventArgs e)
         {
-            new KierowcyForm().ShowDialog();
+            new KierowcyForm().Show();
         }
 
         private void buttonZespoły_Click(object sender, EventArgs e)
@@ -52,8 +52,8 @@ namespace F1_Robota_Pro
             foreach (string l in csvExportWindow.FileNames)
             {
                 SaveMan.ZapiszPlik(l, tabelka,Encoding.Default);
+                MessageBox.Show($"Plik \"{l}\" został zapisany.", "Export do Tabelki", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
         string ExportCsv()
         {
@@ -90,12 +90,49 @@ namespace F1_Robota_Pro
 
         private void mcLarenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new System.Media.SoundPlayer(Properties.Resources.McLaren).Play();
+            new System.Media.SoundPlayer(global::F1_Robota_Pro.Properties.Resources.McLaren).Play();
         }
 
         private void atakujeMnieToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            new System.Media.SoundPlayer(global::F1_Robota_Pro.Properties.Resources.Atakuje_mnie).Play();
 
+        }
+
+        private void resetujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveMan.Usuń("PolePos");
+            MessageBox.Show("Pola startowe zostały zresetowane.", "Pola Startowe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void edytujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new PolePosForm().ShowDialog();
+        }
+
+        private void zczytajZOutputuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, double> BigL = new Dictionary<string, double>();
+            Dictionary<string, short> SmallL = new Dictionary<string, short>();
+            string[] sep = { " = " };
+            string[] enter = { Environment.NewLine };
+            foreach (string k in output.Text.Split(enter, StringSplitOptions.None))
+            {
+                double d;
+                string[] r = k.Split(sep, StringSplitOptions.None);
+                if (r.Length < 2) continue;
+                if (!double.TryParse(r[1], out d)) d = double.PositiveInfinity;
+                BigL.Add(r[0], d);
+            }
+            var y = BigL.ToList(); y.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+            short miejsce = 0;
+            foreach(var g in y)
+            {
+                SmallL.Add(g.Key, miejsce);
+                miejsce++;
+            }
+            SaveMan.Zapisz("PolePos", JsonConvert.SerializeObject(SmallL));
+            MessageBox.Show("Wyniki kwalifikacji zostały zczytane do pól startowych.", "Zczytywanie z Outputu", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

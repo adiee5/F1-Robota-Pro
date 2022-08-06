@@ -32,7 +32,7 @@ namespace F1_Robota_Pro
             else File.WriteAllText(ścieżka, zawartość, cod);
         }
 
-        public static void Usuń(string nazwa, string zawartość)
+        public static void Usuń(string nazwa)
         {
             UsuńPlik(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + $"\\F1 Robota Pro\\{nazwa}.json");
         }
