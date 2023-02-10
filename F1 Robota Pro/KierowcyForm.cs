@@ -33,7 +33,7 @@ namespace F1_Robota_Pro
             Zespoły = JsonConvert.DeserializeObject<Dictionary<string, Zespół>>(zyt);
 
             string odczyt = SaveMan.Wczytaj(plik);
-            if (odczyt == null||odczyt==""||odczyt=="{}"||odczyt=="{{}}")
+            if (odczyt == null||odczyt==""||odczyt=="{}"||odczyt=="{{}}"||odczyt=="null")
             {
                 Kierowcy = new Dictionary<string, Kierowca>();
                 Kierowcy.Add(SaveMan.NameDialog("kierowc"), new Kierowca());
